@@ -18,6 +18,7 @@ if [ ! -f "$INIT_FLAG" ]; then
         TRY=$((TRY+1))
         sleep 1
         if [ $TRY -eq $MAX_TRY ]; then
+            sleep 5
             break
         fi
     done

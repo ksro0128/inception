@@ -12,7 +12,6 @@ RUN apt-get update \
 
 COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
 COPY ./conf/php.ini /etc/php/7.4/fpm/php.ini
-COPY ./conf/wp-config.php wp-config.php
 COPY ./tools/init.sh init.sh
 
 RUN chmod +x init.sh

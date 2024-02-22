@@ -55,12 +55,12 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ../data/wordpress
+      device: /home/surkim/data/wordpress
   vol_mariadb:
     name: vol_mariadb
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: ../data/mariadb
+      device: /home/surkim/data/mariadb
     
