@@ -16,8 +16,5 @@ COPY ./tools/init.sh init.sh
 
 RUN chmod +x init.sh
 
-EXPOSE 9000
-EXPOSE 3306
-
 ENTRYPOINT [ "./init.sh" ]
 CMD ["php-fpm7.4", "-F"]

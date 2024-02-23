@@ -9,5 +9,6 @@ if [ ! -f "$INIT_FLAG" ]; then
     mariadb -e "GRANT ALL ON ${DB_NAME}.* TO '${DB_USER}'@'%';"
     mariadb -e "FLUSH PRIVILEGES;"
     touch "$INIT_FLAG"
+    service mariadb stop
 fi
 exec "$@"

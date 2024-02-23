@@ -1,9 +1,13 @@
 COMPOSE_FILE = srcs/docker-compose.yml
 
 up:
-	@sudo mkdir -p /home/surkim/data/wordpress
-	@sudo mkdir -p /home/surkim/data/mariadb
+	mkdir -p /home/surkim/data/wordpress
+	mkdir -p /home/surkim/data/mariadb
+	chmod 777 /home/surkim/data
 	docker compose -f $(COMPOSE_FILE) up -d --build
+# mkdir -p /Users/surkim/data/wordpress
+# mkdir -p /Users/surkim/data/mariadb
+# chmod 777 /Users/surkim/data
 
 stop:
 	docker compose -f $(COMPOSE_FILE) stop
@@ -34,6 +38,7 @@ clean:
 	docker volume prune -f
 	docker image prune -af
 	sudo rm -rf /home/surkim/data
+# rm -rf /Users/surkim/data
 
 .PHONY: up stop stop-nginx stop-mariadb stop-wordpress \
 		start start-nginx start-mariadb start-wordpress \

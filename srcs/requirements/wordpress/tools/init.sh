@@ -18,7 +18,15 @@ if [ ! -f "$INIT_FLAG" ]; then
         TRY=$((TRY+1))
         sleep 1
         if [ $TRY -eq $MAX_TRY ]; then
-            sleep 5
+            break
+        fi
+    done
+    sleep 5
+    TRY=0
+    while ! mysqladmin -h $DB_HOST -u $DB_USER -p$DB_PASSWORD ping ; do
+        TRY=$((TRY+1))
+        sleep 1
+        if [ $TRY -eq $MAX_TRY ]; then
             break
         fi
     done
